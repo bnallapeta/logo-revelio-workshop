@@ -4,15 +4,15 @@ We're going to start by setting up Kubernetes on Equinix Metal with the help of 
 
 ## Steps
 
-1. k8s on metal: To get Kubernetes on board with Equinix Metal, here's the blueprint - https://cluster-api.sigs.k8s.io/user/quick-start.html. The link contains customized instructions for our Equinix Metal clusters, making it a lot easier.
+- k8s on metal: To get Kubernetes on board with Equinix Metal, here's the blueprint - https://cluster-api.sigs.k8s.io/user/quick-start.html. The link contains customized instructions for our Equinix Metal clusters, making it a lot easier.
 
-  _Eager for more? The source repo for the Cluster API Provider Packet is a wealth of knowledge - kubernetes-sigs/cluster-api-provider-packet: https://github.com/kubernetes-sigs/cluster-api-provider-packet/tree/main. From code and docs to tests, it's a comprehensive guide to everything you need._
+    _Eager for more? The source repo for the Cluster API Provider Packet is a wealth of knowledge - kubernetes-sigs/cluster-api-provider-packet: https://github.com/kubernetes-sigs/cluster-api-provider-packet/tree/main. From code and docs to tests, it's a comprehensive guide to everything you need._
 
-2. metallb as Loadbalancer: Once we've got our Kubernetes cluster up and running, it's time to deploy MetalLB. Use this guide for a straightforward installation - https://metallb.universe.tf/installation. 
+- metallb as Loadbalancer: Once we've got our Kubernetes cluster up and running, it's time to deploy MetalLB. Use this guide for a straightforward installation - https://metallb.universe.tf/installation. 
 
-  _Note: Manifest method tends to work best - https://metallb.universe.tf/installation/#installation-by-manifest._
+    _Note: Manifest method tends to work best - https://metallb.universe.tf/installation/#installation-by-manifest._
 
-You need to manually update the secret 'metal-cloud-config' to add a couple of annotations. This is to make sure that metallb assigns external IPs to our services. 
+- You need to manually update the secret 'metal-cloud-config' to add a couple of annotations. This is to make sure that metallb assigns external IPs to our services. 
 
     a. echo "{"apiKey": "xxxxxxxxxxxxxxxxxxxxx","projectID": "56565446-8850c-sadfsd-235435-sadfsadg", "loadbalancer":"metallb:///?crdConfiguration=true", "annotationEIPMetro=da"}" | base64 -w0
         This will give you a base64 encoded string. 
@@ -22,15 +22,15 @@ You need to manually update the secret 'metal-cloud-config' to add a couple of a
 
 Before moving on to our application (logo-revelio), we require some important tools that are the focus of this workshop - Tekton and ArgoCD.
 
-3. Setting up [ArgoCD](https://argo-cd.readthedocs.io/en/stable/getting_started) and [Tekton](https://github.com/tektoncd/pipeline/blob/main/docs/install.md) are quite straightforward. Follow the instructions from their respective websites. Essentially, its running one “kubectl apply -f ” command on their release.yaml files.
+- Setting up [ArgoCD](https://argo-cd.readthedocs.io/en/stable/getting_started) and [Tekton](https://github.com/tektoncd/pipeline/blob/main/docs/install.md) are quite straightforward. Follow the instructions from their respective websites. Essentially, its running one “kubectl apply -f ” command on their release.yaml files.
 
-4. Setup Pipelines as Code:
+- Setup Pipelines as Code:
    
-   a. Much like Argo and Tekton, you can run the kubectl install -f on their [release.yaml](https://pipelinesascode.com/docs/install/installation/)
+   a. Much like Argo and Tekton, you can run the kubectl install -f on their [release.yaml](https://pipelinesascode.com/docs/install/installation/)  
    b. Additionally, we'll set up a Github app, allowing PaC to monitor the repository for Pull Requests/Push events.  
    c. Follow the instructions from [this](https://pipelinesascode.com/docs/install/github_apps/ ) link where you can either set up the app from the Github GUI. Or, simply install the “[tkn pac](https://github.com/tektoncd/cli/releases)” utility and you can set up the whole app quite easily.
 
-5. With our cluster prepped and our toolkit ready, we can finally focus on our application - Logo Revelio. Go ahead and deploy logo-revelio by following the instructions from the [Readme](https://github.com/bnallapeta/logo-revelio). It's as simple as running a 'kubectl apply -f' on the ArgoCD app. This will get the app resources deployed to the cluster and we're off!
+- With our cluster prepped and our toolkit ready, we can finally focus on our application - Logo Revelio. Go ahead and deploy logo-revelio by following the instructions from the [Readme](https://github.com/bnallapeta/logo-revelio). It's as simple as running a 'kubectl apply -f' on the ArgoCD app. This will get the app resources deployed to the cluster and we're off!
 
 ## Discussion
 
