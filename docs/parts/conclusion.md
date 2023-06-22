@@ -15,7 +15,7 @@ See what fun things you can come up for your CI with Tekton or CD with ArgoCD.
 
 ## Resources
 
-Here are a few other resources to look at to continue your Equinix Metal journey:
+Here are a few other resources to look at to continue your CI journey with Equinix Metal:
 
 * https://cluster-api.sigs.k8s.io
 * https://github.com/kubernetes-sigs/cluster-api-provider-packet/tree/main
