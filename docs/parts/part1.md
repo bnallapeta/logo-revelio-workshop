@@ -4,11 +4,11 @@ We're going to start by setting up Kubernetes on Equinix Metal with the help of 
 
 ## Steps
 
-- k8s on metal: To get Kubernetes on board with Equinix Metal, here's the blueprint - https://cluster-api.sigs.k8s.io/user/quick-start.html. The link contains customized instructions for our Equinix Metal clusters, making it a lot easier.
+- k8s on metal: To get Kubernetes on board with Equinix Metal, here's the blueprint from their [quick start guide](https://cluster-api.sigs.k8s.io/user/quick-start.html). The link contains customized instructions for our Equinix Metal clusters, making it a lot easier.
 
     _Eager for more? The source repo for the Cluster API Provider Packet is a wealth of knowledge - kubernetes-sigs/cluster-api-provider-packet: https://github.com/kubernetes-sigs/cluster-api-provider-packet/tree/main. From code and docs to tests, it's a comprehensive guide to everything you need._
 
-- metallb as Loadbalancer: Once we've got our Kubernetes cluster up and running, it's time to deploy MetalLB. Use this guide for a straightforward installation - https://metallb.universe.tf/installation. 
+- metallb as Loadbalancer: Once we've got our Kubernetes cluster up and running, it's time to deploy MetalLB. Use [this](https://metallb.universe.tf/installation) guide for a straightforward installation. 
 
     _Note: Manifest method tends to work best - https://metallb.universe.tf/installation/#installation-by-manifest._
 
