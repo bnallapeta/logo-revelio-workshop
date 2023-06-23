@@ -1,4 +1,4 @@
-site_name: "Workshop: Equinix Labs"
+site_name: "Workshop: ArgoCD & Tekton on Equinix Metal"
 
 repo_url: https://github.com/equinix-labs/equinix-labs-workshop
 repo_name: equinix-labs/equinix-labs-workshop
@@ -11,9 +11,8 @@ nav:
   - Introduction: index.md
 
   - Parts:
-      - 1. Part 1: parts/part1.md
-      - 2. Part 2: parts/part2.md
-      - 3. Part 3: parts/part3.md
+      - 1. Setup: parts/part1.md
+      - 2. Application: parts/part2.md
 
   - Conclusion: parts/conclusion.md
 
