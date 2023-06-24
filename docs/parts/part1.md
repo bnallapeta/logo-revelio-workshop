@@ -19,7 +19,7 @@ We're going to start by setting up Kubernetes on Equinix Metal with the help of 
     b. Get the secret into a yaml file: kubectl get secret/metal-cloud-config -n kube-system -o yaml > metal-cloud-config.yaml
         Replace the content under .data.cloud-sa.json with the string from step 1.  
     c. Apply the secret: kubectl apply -f metal-cloud-config.yaml  
-    d. Restart the daemonset so that it can take in the new secret. 
+    d. Restart the daemonset so that it can take in the new secret.   
         kubectl -n kube-system rollout restart ds/cloud-provider-equinix-metal
 
 Before moving on to our application (logo-revelio), we require some important tools that are the focus of this workshop - Tekton and ArgoCD.
