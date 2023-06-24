@@ -14,7 +14,7 @@ We're going to start by setting up Kubernetes on Equinix Metal with the help of 
 
 - You need to manually update the secret 'metal-cloud-config' to add a couple of annotations. This is to make sure that metallb assigns external IPs to our services. 
 
-    a. echo "{"apiKey": "xxxxxxxxxxxxxxxxxxxxx","projectID": "56565446-8850c-sadfsd-235435-sadfsadg", "loadbalancer":"metallb:///?crdConfiguration=true", "annotationEIPMetro=da"}" | base64 -w0
+    a. echo '{"apiKey": "xxxxxxxxxxxxxxxxxxxxx","projectID": "56565446-8850c-sadfsd-235435-sadfsadg", "loadbalancer":"metallb:///?crdConfiguration=true", "metro":"da"}' | base64 -w0
         This will give you a base64 encoded string.  
     b. Get the secret into a yaml file: kubectl get secret/metal-cloud-config -n kube-system -o yaml > metal-cloud-config.yaml
         Replace the content under .data.cloud-sa.json with the string from step 1.  
